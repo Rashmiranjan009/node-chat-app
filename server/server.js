@@ -14,6 +14,6 @@ app.use(express.static(appPath));
 
 
 
-app.listen(3000, ()=> {
+app.listen(port, ()=> {
     console.log(`app started on port ${port}`);
 })
