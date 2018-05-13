@@ -12,6 +12,16 @@ var io = socketIO(server);
 io.on('connection', (socket)=>{
     console.log("new user connected");
     
+    socket.emit('newMessage', {
+        from: 'abc@example.com',
+        text: 'hi!! meet me at 7',
+        createdAt: new Date()
+    })
+    
+    socket.on('createMessage', function(message){
+                console.log("create message", message)
+    })
+    
     
     socket.on("disconnect", ()=>{
         console.log("lost connection to client")
@@ -22,10 +32,6 @@ io.on('connection', (socket)=>{
 
 
 app.use(express.static(appPath));
-
-
-
-
 
 server.listen(port, ()=> {
     console.log(`app started on port ${port}`);
