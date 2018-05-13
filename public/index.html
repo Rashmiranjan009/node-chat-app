@@ -4,18 +4,21 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <p>Welcome To the Chat App</p>
+        <h1 style="text-align: center">Welcome To the Chat App</h1>
+        
         
         <div>
-            <ol id="messages">
+            <ol style="list-style: none; color: darkmagenta" id="messages">
                 
             </ol>
         </div>
         
         <form id="message-form">
-          <input type="text" name="message" placeholder="Type your message here">
-           <button>Send</button>
+          <input type="text" name="message" placeholder="Type your message here" style="width: 30%">
+           <button >Send</button>
         </form>
+        
+        <p style="text-align: center">*you are not in a private chat room yet.</p>
         
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
