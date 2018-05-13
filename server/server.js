@@ -12,14 +12,15 @@ var io = socketIO(server);
 io.on('connection', (socket)=>{
     console.log("new user connected");
     
-    socket.emit('newMessage', {
-        from: 'abc@example.com',
-        text: 'hi!! meet me at 7',
-        createdAt: new Date()
-    })
     
-    socket.on('createMessage', function(message){
-                console.log("create message", message)
+    
+    socket.on('createMessage', function(message){       //listening to create message event
+        console.log("create message", message);
+        io.emit('newMessage', {                       //when user creates a message brodcast it to all users
+        from: message.from,
+        text: message.text,
+        createdAt: new Date().getTime()
+    })
     })
     
     
